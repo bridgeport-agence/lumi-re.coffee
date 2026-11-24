@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>LUMIÈRE COFFEE | A moment. A coffee. An experience.</title>
+  <meta name="description" content="Lumière Coffee: specialty coffee, slowly made.">
+
+  <!-- Fonts (Google Fonts). If they fail, the fallback fonts in style.css are used. -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+
+  <!-- LOADING ORDER MATTERS: GSAP first, then ScrollTrigger, then our script.
+       "defer" keeps this order and runs everything after the HTML is parsed. -->
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script defer src="script.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- 1. NAVIGATION -->
+  <header class="site-header">
+    <a class="logo" href="#hero" aria-label="Lumière Coffee, back to top">LUMIÈRE <span>COFFEE</span></a>
+
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">
+      <span></span><span></span>
+    </button>
+
+    <nav class="site-nav" id="site-nav" aria-label="Main navigation">
+      <ul>
+        <li><a href="#hero">Home</a></li>
+        <li><a href="#story">Our Story</a></li>
+        <li><a href="#menu">Menu</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <a class="btn btn--small" href="#reservation">Reservation</a>
+    </nav>
+  </header>
+
+  <main id="main">
+
+    <!-- 2. HERO -->
+    <section class="hero section" id="hero" aria-labelledby="hero-title">
+      <div class="hero-bg" aria-hidden="true">
+        <span class="float float--1"></span>
+        <span class="float float--2"></span>
+        <span class="float float--3"></span>
+      </div>
+
+      <div class="hero-copy">
+        <h1 id="hero-title">
+          <span class="line"><span class="line-inner">A moment.</span></span>
+          <span class="line"><span class="line-inner">A coffee.</span></span>
+          <span class="line"><span class="line-inner">An experience.</span></span>
+        </h1>
+        <p class="hero-text hero-fade">Single-origin beans, roasted in small batches and poured slowly, in a room made for staying a while.</p>
+        <a class="btn hero-fade" href="#menu">Explore Menu</a>
+      </div>
+      <div class="hero-3d" id="spline-stage" role="group" aria-label="Animated coffee cup illustration">
+        <div class="coffee-orbit coffee-orbit--outer" aria-hidden="true"></div>
+        <div class="coffee-orbit coffee-orbit--inner" aria-hidden="true"></div>
+        <div class="coffee-bean coffee-bean--1" aria-hidden="true"></div>
+        <div class="coffee-bean coffee-bean--2" aria-hidden="true"></div>
+        <div class="cup" aria-hidden="true">
+          <span class="steam steam--1"></span>
+          <span class="steam steam--2"></span>
+          <span class="steam steam--3"></span>
+          <div class="cup-body"><span class="latte-art"></span></div>
+          <div class="cup-handle"></div>
+          <div class="cup-saucer"></div>
+        </div>
+        <div class="hero-badge hero-badge--top" aria-hidden="true">Single origin</div>
+        <div class="hero-badge hero-badge--bottom" aria-hidden="true">Freshly roasted</div>
+        <p class="stage-note" id="stage-note" hidden>3D scene placeholder. Add your Spline URL in script.js.</p>
+      </div>
+    </section>
+    <section class="section section--light story" id="story" aria-labelledby="story-title">
+      <div class="container story-grid">
+        <div class="story-media">
+          <div class="parallax-frame img-reveal">
+            <img class="holder-image" src="images/Cafélumiere1.jpg" alt="Sunlit interior of Lumière Coffee" loading="eager">
+          </div>
+          <div class="parallax-frame parallax-frame--small img-reveal">
+            <img class="holder-image" src="images/cafélumiere2.jpg" alt="our team working for your coffee" loading="eager">
+          </div>
+        </div>
+
+        <div class="story-text">
+          <p class="story-kicker reveal">From one quiet idea to one beloved ritual</p>
+          <h2 class="reveal" id="story-title">Slow coffee, made with care.</h2>
+          <p class="reveal">Lumière began with one idea: a cup of coffee deserves your full attention. We work directly with small farms, roast every week, and brew each cup to order.</p>
+          <p class="reveal">Every bean is chosen for character, every roast is tasted by hand, and every cup is finished just for you. It is a simple process, but one we believe should never feel rushed.</p>
+          <p class="reveal">Our room is quiet, warm and unhurried. Sit by the window, bring a book, or share a table with someone you like.</p>
+
+          <div class="story-values reveal" aria-label="Our coffee process">
+            <div class="story-value"><span>01</span><strong>Source</strong><small>Small partner farms</small></div>
+            <div class="story-value"><span>02</span><strong>Roast</strong><small>Fresh, weekly batches</small></div>
+            <div class="story-value"><span>03</span><strong>Serve</strong><small>Made cup by cup</small></div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="section menu" id="menu" aria-labelledby="menu-title">
+      <div class="container">
+        <h2 class="reveal" id="menu-title">The menu</h2>
+        <p class="section-intro reveal">Explore our selection of carefully crafted beverages and pastries.</p>
+
+        <div class="menu-grid" data-stagger>
+          <article class="card">
+            <div class="card-media"><img class="holder-image" src="images/Espresso.jpg" alt="Espresso" loading="eager"></div>
+            <div class="card-body">
+              <h3>Espresso Lumière</h3>
+              <p>Our house blend: dark chocolate, toasted almond, a hint of orange.</p>
+              <span class="price">$3.50</span>
+            </div>
+          </article>
+          <article class="card">
+            <div class="card-media"><img class="holder-image" src="images/Cappuccinolatte.jpg" alt="Cappuccino latte" loading="eager"></div>
+            <div class="card-body">
+              <h3>Flat White</h3>
+              <p>Double ristretto with silky steamed milk. Smooth and balanced.</p>
+              <span class="price">$4.80</span>
+            </div>
+          </article>
+          <article class="card">
+            <div class="card-media"><img class="holder-image" src="images/macchiato.jpg" alt="Caramel macchiato latte" loading="eager"></div>
+            <div class="card-body">
+              <h3>Caramel Velvet Latte</h3>
+              <p>Espresso, steamed milk and house-made salted caramel.</p>
+              <span class="price">$5.50</span>
+            </div>
+          </article>
+          <article class="card">
+            <div class="card-media"><img class="holder-image" src="images/Caféfroid.jpg" alt="Cold Brew Noir" loading="eager"></div>
+            <div class="card-body">
+              <h3>Cold Brew Noir</h3>
+              <p>Steeped for 18 hours. Deep, sweet and very smooth over ice.</p>
+              <span class="price">$5.20</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+    <section class="section section--deep experience" id="experience" aria-labelledby="exp-title">
+      <div class="container">
+        <h2 class="reveal" id="exp-title">The Lumière experience</h2>
+
+        <div class="exp-item">
+          <div class="exp-img img-reveal"><img class="holder-image" src="images/artisanal.png" alt="Fresh coffee beans being roasted" loading="eager"></div>
+          <div class="exp-text reveal">
+            <h3>Roasted weekly</h3>
+            <p>Small batches, roasted on site, so every bag reaches you at its best.</p>
+          </div>
+        </div>
+        <div class="exp-item exp-item--reverse">
+          <div class="exp-img img-reveal"><img class="holder-image" src="images/Caféfiltre.jpg" alt="Brewed to order" loading="eager"></div>
+          <div class="exp-text reveal">
+            <h3>Brewed to order</h3>
+            <p>Each cup is measured, timed and poured by hand. It takes a few minutes, and it is worth them.</p>
+          </div>
+        </div>
+        <div class="exp-item">
+          <div class="exp-img img-reveal"><img class="holder-image" src="images/Matin.jpg" alt="A cozy table by the window with coffee and a book" loading="eager"></div>
+          <div class="exp-text reveal">
+            <h3>A room to stay in</h3>
+            <p>Warm light, soft music and no rush. Take the table by the window.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="section section--light gallery" id="gallery" aria-labelledby="gallery-title">
+      <div class="container">
+        <h2 class="reveal" id="gallery-title">Gallery</h2>
+        <div class="gallery-grid" data-stagger>
+          <div class="g-item"><img class="holder-image" src="images/gallery1.png" alt="Latte art on a wooden café table" loading="lazy"></div>
+          <div class="g-item"><img class="holder-image" src="images/gallery2.png" alt="Roasted coffee beans" loading="lazy"></div>
+          <div class="g-item"><img class="holder-image" src="images/gallery3.png.png" alt="Coffee and croissant in a sunny café" loading="lazy"></div>
+          <div class="g-item"><img class="holder-image" src="images/gallery4.png" alt="Latte held in warm knitted sleeves" loading="lazy"></div>
+          <div class="g-item"><img class="holder-image" src="images/gallery5.png" alt="Espresso machine pouring coffee" loading="lazy"></div>
+          <div class="g-item"><img class="holder-image" src="images/gallery6.png" alt="Coffee by the window at sunrise" loading="lazy"></div>
+        </div>
+      </div>
+    </section>
+    <section class="section reservation" id="reservation" aria-labelledby="res-title">
+      <div class="container res-wrap">
+        <div class="res-copy">
+          <h2 class="reveal" id="res-title">Reserve a table</h2>
+          <p class="reveal">Tell us when you would like to visit and we will keep a table for you.</p>
+          <p class="note reveal"><strong>Demo form:</strong> it checks your input but does not send it anywhere.</p>
+        </div>
+
+        <form id="reservation-form" class="res-form reveal" novalidate>
+          <div class="field">
+            <label for="res-name">Full name</label>
+            <input id="res-name" name="name" type="text" autocomplete="name" aria-describedby="err-name" required>
+            <span class="error" id="err-name" aria-live="polite"></span>
+          </div>
+          <div class="field">
+            <label for="res-email">Email</label>
+            <input id="res-email" name="email" type="email" autocomplete="email" aria-describedby="err-email" required>
+            <span class="error" id="err-email" aria-live="polite"></span>
+          </div>
+          <div class="field">
+            <label for="res-date">Date</label>
+            <input id="res-date" name="date" type="date" aria-describedby="err-date" required>
+            <span class="error" id="err-date" aria-live="polite"></span>
+          </div>
+          <div class="field">
+            <label for="res-guests">Guests (1 to 12)</label>
+            <input id="res-guests" name="guests" type="number" min="1" max="12" value="2" aria-describedby="err-guests" required>
+            <span class="error" id="err-guests" aria-live="polite"></span>
+          </div>
+          <button class="btn" type="submit">Request a table</button>
+          <p class="form-status" id="form-status" role="status"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+  <footer class="site-footer" id="contact">
+    <div class="container footer-grid">
+      <div>
+        <p class="footer-logo">LUMIÈRE COFFEE</p>
+        <p>A moment. A coffee. An experience.</p>
+      </div>
+      <div>
+        <h2 class="footer-title">Opening hours</h2>
+        <p>Monday to Friday: 7:30 to 19:00<br>Saturday and Sunday: 8:30 to 20:00</p>
+      </div>
+      <div>
+        <h2 class="footer-title">Contact</h2>
+    
+        <p>12 Example Street, Your City<br>
+          <a href="mailto:hello@example.com">hello@example.com</a><br>
+          +00 000 000 000</p>
+      </div>
+      <div>
+        <h2 class="footer-title">Follow us</h2>
+        <ul class="social">
+          <li><a href="#" aria-label="Lumière Coffee on Instagram">Instagram</a></li>
+          <li><a href="#" aria-label="Lumière Coffee on TikTok">TikTok</a></li>
+          <li><a href="#" aria-label="Lumière Coffee on Facebook">Facebook</a></li>
+        </ul>
+      </div>
+    </div>
+    <p class="copyright">&copy; <span id="year">2026</span> Lumière Coffee. All rights reserved.</p>
+  </footer>
+</body>
+</html>
